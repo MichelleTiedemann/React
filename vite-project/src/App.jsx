@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <NavBar />
-      <CartWidget />
       <ItemListContainer greeting="¡Bienvenidos a nuestra tienda!" />
     </>
   );

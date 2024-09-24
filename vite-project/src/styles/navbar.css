@@ -1,0 +1,62 @@
+/* Navbar */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #50135e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 250px;
+  width: 100%; /* Asegura que el navbar ocupe el 100% del ancho */
+}
+
+li {
+  margin: 0;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #3c1a3d;
+}
+
+/* Carrito centrado */
+.cart-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+/* Centrar el texto de bienvenida */
+.item-list-container {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 200px 250px 250px;
+  font-size: 18px;
+  color: #343a40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 50px);
+  width: 100%; /* Ocupar todo el ancho */
+  box-sizing: border-box; /* Incluir el padding en el ancho total */
+  margin-left: 3.125rem;
+  width: 100%; /* Elimina los márgenes laterales */
+}
+
+/* Ajustes generales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}

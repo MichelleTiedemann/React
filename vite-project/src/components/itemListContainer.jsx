@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/navbar.scss";
+import "../styles/navbar.css";
 
 const ItemListContainer = ({ greeting }) => {
   return (
