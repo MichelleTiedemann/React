@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/item.css";
+import "../styles/item.scss";
 import { NavLink } from "react-router-dom";
 /*
     {
@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 */
 const Item = ({ item }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.containerDos}>
       <img src={item.pictureUrl} />
       <h2>{item.title}</h2>
       <span>{item.description}</span>

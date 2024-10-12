@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     const product = products.find(
-      (productToFind) => productToFind.id === Number(id)
+      (productToFind) => productToFind.id === parseInt(id)
     );
     console.log(product);
     setProduct(product);
