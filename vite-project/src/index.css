@@ -35,6 +35,9 @@ h1 {
   line-height: 1.1;
 }
 
+h3 h4 {
+  color: #2e1a46;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -57,12 +60,12 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #2e1a46;
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #2e1a46;
   }
 }

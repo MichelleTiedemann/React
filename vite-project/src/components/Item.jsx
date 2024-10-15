@@ -1,24 +1,16 @@
 import React from "react";
-import "../styles/item.scss";
+import "../styles/navbar.scss";
 import { NavLink } from "react-router-dom";
-/*
-    {
-        "id": 21,
-        "title": "LG Optimus Chat C550",
-        "description": "diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis",
-        "price": 56.7,
-        "pictureUrl": "http://dummyimage.com/300x300.png/dddddd/000000"
-    }
-*/
+
 const Item = ({ item }) => {
   return (
-    <div className={styles.containerDos}>
-      <img src={item.pictureUrl} />
+    <div className="item-card">
+      <img src={item.pictureUrl} alt={item.title} />
       <h2>{item.title}</h2>
-      <span>{item.description}</span>
       <span>${item.price}</span>
+
       <NavLink to={`/detail/${item.id}`}>
-        <button>Detail</button>
+        <button>Detalles del producto</button>
       </NavLink>
     </div>
   );

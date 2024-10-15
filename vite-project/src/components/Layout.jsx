@@ -1,14 +1,19 @@
 import React from "react";
 import NavBar from "./NavBar";
-import Footer from "./Footer";
-import styles from "../styles/layout.scss";
+import { useCart } from "./CartContext"; // Import useCart hook
 
 const Layout = ({ children }) => {
+  const { cartItems } = useCart(); // Use the useCart hook to access cart items
+
   return (
     <>
-      <NavBar />
-      <div className={styles["main-container"]}>{children}</div>
-      <Footer />
+      <NavBar
+        cartItemCount={cartItems.reduce(
+          (total, item) => total + item.quantity,
+          0
+        )}
+      />
+      {children}
     </>
   );
 };

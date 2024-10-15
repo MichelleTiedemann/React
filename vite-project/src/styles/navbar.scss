@@ -1,62 +1,103 @@
-/* Navbar */
+/* Estilos para el NavBar */
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #50135e;
+  background-color: #2e1a46; /* Color violeta */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around; /* Distribuye los elementos a lo largo */
   align-items: center;
-  padding: 10px 250px;
-  width: 100%; /* Asegura que el navbar ocupe el 100% del ancho */
 }
 
 li {
-  margin: 0;
+  float: none; /* Elimina el float para mejor control */
+  display: inline-block;
 }
 
 li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 20px;
   text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+  border-radius: 6px; /* Bordes redondeados */
 }
 
 li a:hover {
-  background-color: #3c1a3d;
+  background-color: #4a2e68; /* Tonalidad más oscura del violeta */
+  color: #f3e9ff; /* Un blanco suave para el hover */
 }
 
-/* Carrito centrado */
-.cart-icon {
+/* Estilos para las tarjetas de categorías */
+.item-card {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  width: 250px;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 8px; /* Redondea las esquinas de las imágenes */
+}
+
+h2 {
+  font-size: 16px;
+  color: #2e1a46;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 8px;
+  color: #555; /* Un gris suave */
+}
+
+span {
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #2e1a46;
+}
+
+button {
+  background-color: #2e1a46; /* Color violeta para botones */
   color: white;
-  font-size: 18px;
+  border: none;
+  padding: 10px 15px; /* Un poco más de padding */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #4a2e68;
+    transform: translateY(-2px); /* Efecto de levantamiento */
+  }
 }
 
-/* Centrar el texto de bienvenida */
+/* Estilos para la lista de productos */
 .item-list-container {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  padding: 200px 250px 250px;
-  font-size: 18px;
-  color: #343a40;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 50px);
-  width: 100%; /* Ocupar todo el ancho */
-  box-sizing: border-box; /* Incluir el padding en el ancho total */
-  margin-left: 3.125rem;
-  width: 100%; /* Elimina los márgenes laterales */
-}
+  padding: 20px;
 
-/* Ajustes generales */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+  .item-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los items */
+  }
 }

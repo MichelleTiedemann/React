@@ -1,39 +1,67 @@
 import React from "react";
 import "../styles/navbar.scss";
-import { Link, NavLink } from "react-router-dom";
+import CartWidget from "./CartWidget";
+import { NavLink } from "react-router-dom";
+import { useCart } from "./CartContext";
 
 const NavBar = () => {
+  const { cartItems } = useCart();
+  const cartItemCount = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+
+  const categories = [
+    "Limpiadores",
+    "Serums",
+    "Cremas",
+    "Protectores solares",
+    "Otros",
+  ];
+
   return (
     <nav>
-      <ul className={styles.list}>
+      <ul>
         <li>
           <NavLink
-            className={({ isActive }) => {
-              return isActive ? styles.isActive : styles.notActive;
-            }}
-            to={"/"}
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/home"
           >
             Home
           </NavLink>
         </li>
-        <li>
+        {categories.map((category) => (
+          <li key={category}>
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
+              to={`/category/${category}`}
+            >
+              {category}
+            </NavLink>
+          </li>
+        ))}
+        {/*<li>
           <NavLink
-            className={({ isActive }) => {
-              return isActive ? styles.isActive : styles.notActive;
-            }}
-            to={"/category/jewelery"}
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/contact"
           >
-            Jewelery
+            Contact
           </NavLink>
         </li>
         <li>
           <NavLink
-            className={({ isActive }) => {
-              return isActive ? styles.isActive : styles.notActive;
-            }}
-            to={"/category/electronics"}
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/about"
           >
-            Electronics
+            About
+          </NavLink>
+        </li>*/}
+        <li>
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "")}
+            to="/cart"
+          >
+            <CartWidget itemCount={cartItemCount} />
           </NavLink>
         </li>
       </ul>
