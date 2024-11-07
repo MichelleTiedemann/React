@@ -1,9 +1,9 @@
 import React from "react";
 import NavBar from "./NavBar";
-import { useCart } from "./CartContext"; // Import useCart hook
+import { useCart } from "./CartContext";
 
 const Layout = ({ children }) => {
-  const { cartItems } = useCart(); // Use the useCart hook to access cart items
+  const { cartItems } = useCart();
 
   return (
     <>

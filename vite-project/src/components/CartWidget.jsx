@@ -1,15 +1,15 @@
 import React from "react";
 import cart from "../assets/cart.svg";
+import { useCart } from "./CartContext";
 
-const CartWidget = ({ itemCount }) => {
+const CartWidget = () => {
+  const { getCartTotalQuantity } = useCart();
   return (
     <>
-      <img
-        src={cart}
-        alt="cart"
-        style={{ width: "30px", height: "30px", cursor: "pointer" }}
-      />
-      {itemCount > 0 && <span>{itemCount}</span>}
+      <div className="cart-icon-container">
+        <img className="cart-icon" src={cart} alt="cart" />
+        <div className="cart-counter">{getCartTotalQuantity()}</div>
+      </div>
     </>
   );
 };

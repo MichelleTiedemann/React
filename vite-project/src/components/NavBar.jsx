@@ -6,10 +6,6 @@ import { useCart } from "./CartContext";
 
 const NavBar = () => {
   const { cartItems } = useCart();
-  const cartItemCount = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
 
   const categories = [
     "Limpiadores",
@@ -45,7 +41,7 @@ const NavBar = () => {
             className={({ isActive }) => (isActive ? "active" : "")}
             to="/cart"
           >
-            <CartWidget itemCount={cartItemCount} />
+            <CartWidget />
           </NavLink>
         </li>
       </ul>

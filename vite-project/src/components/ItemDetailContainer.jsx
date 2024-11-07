@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { ProductsContext } from "../context/ProductsContextProvider";
 import ItemDetail from "./ItemDetail";
-import products from "../assets/dataProducts.json";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState(null);
-
+  const data = useContext(ProductsContext);
+  const { products } = data;
   const { id } = useParams();
+  const { categoryId } = useParams();
+  const product = products.find((productToFind) => productToFind.id === id);
 
-  useEffect(() => {
-    const product = products.find(
-      (productToFind) => productToFind.id === Number(id)
-    );
-    console.log(product);
-    setProduct(product);
-  }, [id]);
+  console.log(id);
+  console.log(categoryId);
 
-  return product && <ItemDetail product={product} />;
+  return <ItemDetail product={product} />;
 };
 
 export default ItemDetailContainer;

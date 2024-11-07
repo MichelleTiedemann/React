@@ -1,35 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { db } from "../firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 import Item from "./Item";
-import dataProducts from "../assets/dataProducts.json";
 import "../styles/navbar.scss";
+import { ProductsContext } from "../context/ProductsContextProvider";
 
 const ItemListContainer = ({ category }) => {
-  const [products, setProducts] = useState([]);
+  const data = useContext(ProductsContext);
+  const { products, setProducts } = data;
   const [loading, setLoading] = useState(true);
+  const fetchData = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "productos"));
+      const data = querySnapshot.docs.map((doc) => ({
+        id: doc.id, // Aquí obtienes el ID del documento
+        ...doc.data(), // Aquí obtienes los datos del documento
+      }));
+
+      if (category) {
+        //filtar los productos segun su categoria
+        const filteredProducts = data.filter(
+          (product) => product.category === category
+        );
+        setProducts(filteredProducts);
+      } else {
+        setProducts(data);
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchProducts = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(dataProducts);
-      }, 2000);
-    });
-
-    fetchProducts
-      .then((data) => {
-        if (category) {
-          const filteredProducts = data.filter(
-            (product) => product.category === category
-          );
-          setProducts(filteredProducts);
-        } else {
-          setProducts(data);
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching products:", error);
-        setLoading(false);
-      });
+    fetchData();
   }, [category]);
 
   return (
@@ -43,7 +47,7 @@ const ItemListContainer = ({ category }) => {
           ))}
         </div>
       ) : (
-        <p>Lo sentimos, no se encontraron productos en esta categoría.</p>
+        <p>No se encontraron productos en esta categoría.</p>
       )}
     </div>
   );
