@@ -30,9 +30,10 @@ const CartPage = () => {
               <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
             </div>
           ))}
-          <p>Total: ${getCartTotal()}</p>
-          <button onClick={clearCart}>Limpiar carrito</button>
-          <button onClick={handleCheckout}>Checkout</button>
+          <p className="total">Total: ${getCartTotal()}</p>
+          <button className="button-checkout" onClick={handleCheckout}>
+            Checkout
+          </button>
         </div>
       )}
     </>

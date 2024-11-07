@@ -69,8 +69,14 @@ button:focus-visible {
   font-size: 25px;
   color: #4f2c79;
 }
-
+.total {
+  color: #000000;
+  font-weight: 650;
+}
 /* Checkout.css */
+.button-checkout {
+  color: #1e922e;
+}
 .checkout-form {
   display: flex;
   flex-direction: column;
